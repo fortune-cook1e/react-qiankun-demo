@@ -5,9 +5,12 @@ import RouteMap from '@/routes'
 
 const App = (): JSX.Element => {
   return (
-    <Router>
-      <RouteMap />
-    </Router>
+    <div>
+      <div>tihs is app</div>
+      <Router>
+        <RouteMap />
+      </Router>
+    </div>
   )
 }
 

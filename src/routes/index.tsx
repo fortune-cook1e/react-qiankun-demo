@@ -61,7 +61,7 @@ const routes: RouteConfig[] = [
     }
   },
   {
-    path: '/micro-app',
+    path: '/cdp/*',
     element: () => import('@/pages/micro-app'),
     meta: {
       requiredLogin: false
