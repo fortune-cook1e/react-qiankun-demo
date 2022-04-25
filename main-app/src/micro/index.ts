@@ -1,12 +1,14 @@
 import { registerMicroApps, start } from 'qiankun'
-import shared from './shared'
+import SharedInstance, { Shared } from './shared'
 
 interface MicroApp {
   name: string
   entry: string
   container: string
   activeRule: string
-  props: any
+  props: {
+    shared: Shared
+  }
 }
 
 export const SUB_APP: MicroApp = {
@@ -14,7 +16,7 @@ export const SUB_APP: MicroApp = {
   entry: '//localhost:8088',
   container: '#sub-app',
   activeRule: '/sub-app',
-  props: { shared }
+  props: { shared: SharedInstance }
 }
 
 export const MIRCO_APPS: MicroApp[] = [SUB_APP]

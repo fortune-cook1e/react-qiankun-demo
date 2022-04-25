@@ -3,10 +3,13 @@ import React from 'react'
 import App from './App'
 import ReactDom from 'react-dom'
 import './styles/global.less'
+import SharedModule from './micro/shared'
 
 const render = (props: any) => {
-	const { container } = props
-	console.log({ props })
+	// 如果父应用没有传递Shared实例过来 那么就自己生成一份
+	const { container, shared = SharedModule.getShared() } = props
+	SharedModule.overloadShared(shared)
+
 	ReactDom.render(
 		<App />,
 		container ? container.querySelector('#root') : document.querySelector('#root')
