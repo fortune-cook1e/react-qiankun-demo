@@ -5,7 +5,7 @@ const commonConfig = require('./webpack.base')
 
 const jstsRegex = /\.(js|jsx|ts|tsx)$/
 
-const PORT = 8000
+const PORT = 8080
 
 module.exports = merge(commonConfig, {
   mode: 'development',
@@ -14,16 +14,17 @@ module.exports = merge(commonConfig, {
     historyApiFallback: true,
     static: paths.build,
     compress: true,
+    open: true,
     hot: true,
     port: PORT,
     proxy: {
-      '/cdp-api': {
-        target: 'https://test-cdp.myscrm.cn/cdp-api',
-        changeOrigin: true,
-        pathRewrite: {
-          '^/cdp-api': ''
-        }
-      }
+      // '/cdp-api': {
+      //   target: 'https://test-cdp.myscrm.cn/cdp-api',
+      //   changeOrigin: true,
+      //   pathRewrite: {
+      //     '^/cdp-api': ''
+      //   }
+      // }
     }
   },
 

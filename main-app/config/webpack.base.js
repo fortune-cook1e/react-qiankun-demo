@@ -4,6 +4,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 
+const theme = require('./theme')
+
 const env = process.env.NODE_ENV
 const jstsRegex = /\.(js|jsx|ts|tsx)$/
 const cssRegex = /\.css$/
@@ -26,9 +28,8 @@ const cssModuleOptions = (type, useModules) => {
 }
 
 const lessOptions = () => {
-  const vars = paths.src + '/styles/vars.less'
   const lessOptions = {
-    modifyVars: { hack: `true; @import "${vars}";` },
+    modifyVars: theme,
     javascriptEnabled: true
   }
   return {
@@ -133,7 +134,7 @@ module.exports = {
     }),
     new HtmlWebpackPlugin({
       template: paths.public + '/index.html', // template file
-      // favicon: paths.public + '/favicon.ico',
+      favicon: paths.public + '/favicon.ico',
       filename: 'index.html', // output file
       inject: 'body' // script插入body底部
     })

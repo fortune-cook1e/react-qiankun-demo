@@ -1,16 +1,21 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
+import { Button } from 'antd'
 
 const Home = (): JSX.Element => {
   const navigate = useNavigate()
 
+  const [state, setState] = React.useState({ count: 0 })
+
   const goMiroApp = () => {
-    navigate('/cdp')
+    navigate('/sub-app')
   }
 
   return (
     <div>
-      this is home <button onClick={goMiroApp}>click me</button>
+      <h1>this is home</h1>
+
+      <Button onClick={goMiroApp}>go sub-app page</Button>
     </div>
   )
 }
