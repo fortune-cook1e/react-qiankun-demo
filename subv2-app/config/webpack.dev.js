@@ -2,7 +2,7 @@ const { merge } = require('webpack-merge')
 const paths = require('./paths')
 const commonConfig = require('./webpack.common')
 
-const PORT = 8080
+const PORT = 8089
 
 module.exports = merge(commonConfig, {
 	mode: 'development',
@@ -13,6 +13,12 @@ module.exports = merge(commonConfig, {
 		compress: true,
 		hot: true,
 		port: PORT,
-		open: true
+		open: true,
+
+		// for qiankun
+		// liveReload: false,
+		headers: {
+			'Access-Control-Allow-Origin': '*'
+		}
 	}
 })

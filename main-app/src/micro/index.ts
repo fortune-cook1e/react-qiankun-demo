@@ -29,7 +29,7 @@ export const SUBV2_APP: MicroApp = {
   }
 }
 
-export const MIRCO_APPS: MicroApp[] = [SUB_APP]
+export const MIRCO_APPS: MicroApp[] = [SUB_APP, SUBV2_APP]
 
 export const startMicroApps = (): void => {
   registerMicroApps(MIRCO_APPS)

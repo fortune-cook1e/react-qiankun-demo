@@ -7,6 +7,7 @@ import { layoutRoutes, noLayoutRoutes } from './routes'
 import { IRouteItem } from '@/types/route'
 import RouteGuard from '@/components/RouteGuard'
 import { omit } from '@/utils'
+import config from '@/utils/config'
 
 /**
  * @param {IRouteItem} routes
@@ -45,7 +46,11 @@ export const routes = [
 const RouterMap: React.FC = () => {
 	return (
 		<Suspense fallback={<Spin />}>
-			<Router>
+			<Router
+				basename={
+					window.__POWERED_BY_QIANKUN__ ? config.micro_app_base_url : '/'
+				}
+			>
 				<Switch>{renderRoutes(routes)}</Switch>
 			</Router>
 		</Suspense>

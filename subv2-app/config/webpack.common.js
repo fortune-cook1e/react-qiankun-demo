@@ -14,6 +14,7 @@ const lessRegex = /\.less$/
 const lessModuleRegex = /\.module\.less$/
 
 const isDev = process.env.NODE_ENV === 'development'
+const packageName = require('../package.json').name
 
 const analysis = process.env.ANALYSIS === '1'
 
@@ -47,7 +48,11 @@ const config = {
 		path: paths.build,
 		publicPath: isDev ? '/' : './',
 		filename: isDev ? 'js/[name].js' : 'js/[name].[contenthash].js',
-		chunkFilename: isDev ? 'js/[name].js' : 'js/[name].[contenthash].js'
+		chunkFilename: isDev ? 'js/[name].js' : 'js/[name].[contenthash].js',
+		library: `${packageName}`,
+		libraryTarget: 'umd',
+		chunkLoadingGlobal: `webpackJsonp_${packageName}`,
+		globalObject: 'window'
 	},
 	resolve: {
 		extensions: ['.js', '.jsx', '.ts', '.tsx'],

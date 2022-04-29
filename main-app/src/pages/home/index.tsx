@@ -7,15 +7,20 @@ const Home = (): JSX.Element => {
 
   const [state, setState] = React.useState({ count: 0 })
 
-  const goMiroApp = () => {
+  const goMicroApp = () => {
     navigate('/sub-app')
+  }
+
+  const goMicroApp2 = () => {
+    navigate('/subv2-app')
   }
 
   return (
     <div>
       <h1>this is home</h1>
 
-      <Button onClick={goMiroApp}>go sub-app page</Button>
+      <Button onClick={goMicroApp}>go sub-app page</Button>
+      <Button onClick={goMicroApp2}>go to subv2-app page</Button>
     </div>
   )
 }

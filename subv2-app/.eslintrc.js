@@ -23,7 +23,8 @@ module.exports = {
 		sourceType: 'module'
 	},
 	globals: {
-		JSX: true
+		JSX: true,
+		__webpack_public_path__: true
 	},
 	rules: {
 		'@typescript-eslint/no-require-imports': 0,
