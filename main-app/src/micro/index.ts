@@ -19,6 +19,16 @@ export const SUB_APP: MicroApp = {
   props: { shared: SharedInstance }
 }
 
+export const SUBV2_APP: MicroApp = {
+  name: 'subv2-app',
+  entry: '//localhost:8089',
+  container: '#subv2-app',
+  activeRule: '/subv2-app',
+  props: {
+    shared: SharedInstance
+  }
+}
+
 export const MIRCO_APPS: MicroApp[] = [SUB_APP]
 
 export const startMicroApps = (): void => {

@@ -2,7 +2,7 @@ import React, { lazy, Suspense, ComponentType } from 'react'
 import { useRoutes } from 'react-router-dom'
 import ProtectedRoute from '@/components/ProtectedRoute'
 import NotFound from '@/pages/404'
-import { SUB_APP } from '@/micro'
+import { SUB_APP, SUBV2_APP } from '@/micro'
 
 // 后续增加layout组件 prop
 interface RouteConfig {
@@ -71,6 +71,13 @@ const routes: RouteConfig[] = [
   {
     path: `${SUB_APP.activeRule}/*`,
     element: () => import('@/pages/sub-app'),
+    meta: {
+      requiredLogin: false
+    }
+  },
+  {
+    path: `${SUBV2_APP.activeRule}/*`,
+    element: () => import('@/pages/subv2-app'),
     meta: {
       requiredLogin: false
     }
